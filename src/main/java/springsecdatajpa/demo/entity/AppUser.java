@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +23,8 @@ public class AppUser {
     private String userpassword;
     @Column(unique = true)
     private String email;
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable
+    private Set<Authorities> authorities;
 
 }

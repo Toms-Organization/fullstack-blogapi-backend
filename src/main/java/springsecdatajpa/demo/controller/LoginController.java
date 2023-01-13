@@ -37,9 +37,9 @@ public class LoginController {
         boolean goodUser = appUserService.checkIfValidUser(appUserLoginDTO);
 
 
-        String token = tokenService.generateToken2(appUserLoginDTO);
-        LOG.debug("Token granted {}", token);
-        return token;
+        //String token = tokenService.generateToken2(appUserLoginDTO);
+        // LOG.debug("Token granted {}", token);
+        return "token";
     }
 
 }
