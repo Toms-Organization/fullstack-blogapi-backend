@@ -36,6 +36,7 @@ public class LoginController {
         // IF SO--> Return token -> Else deny access
         boolean goodUser = appUserService.checkIfValidUser(appUserLoginDTO);
 
+
         String token = tokenService.generateToken2(appUserLoginDTO);
         LOG.debug("Token granted {}", token);
         return token;
