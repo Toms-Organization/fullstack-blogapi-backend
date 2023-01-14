@@ -15,16 +15,16 @@ public class AppUserService {
         this.appUserRepository = appUserRepository;
     }
 
-    public boolean checkIfValidUser(AppUserLoginDTO appUserLoginDTO) {
+    public AppUser checkIfValidUser(AppUserLoginDTO appUserLoginDTO) {
         System.out.println(appUserLoginDTO.toString());
-        AppUser thisUser = appUserRepository.findAppUserByUserNameAndUserPassword(appUserLoginDTO.getUsername(), appUserLoginDTO.getUserpassword());
+        AppUser thisUser = appUserRepository.findAppUserByUserNameAndUserPassword(appUserLoginDTO.getUserName(), appUserLoginDTO.getUserPassword());
         System.out.println(thisUser);
         if (thisUser != null) {
             System.out.println("not null");
-            return true;
+            return thisUser;
         } else {
             System.out.println("is null....");
-            return false;
+            return null;
         }
     }
 }
