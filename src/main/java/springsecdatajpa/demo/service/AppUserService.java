@@ -27,4 +27,8 @@ public class AppUserService {
             return null;
         }
     }
+
+    public void saveAppUser(AppUser u1) {
+        appUserRepository.save(u1);
+    }
 }

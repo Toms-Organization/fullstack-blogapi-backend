@@ -27,4 +27,10 @@ public class AppUser {
     @JoinTable
     private Set<Authorities> authorities;
 
+    public AppUser(String userName, String userPassword, String email, Set<Authorities> authorities) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.email = email;
+        this.authorities = authorities;
+    }
 }

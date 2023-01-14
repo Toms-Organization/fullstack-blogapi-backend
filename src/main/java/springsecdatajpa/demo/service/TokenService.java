@@ -48,7 +48,7 @@ public class TokenService {
                 .collect(Collectors.joining(" "));
         System.out.println(scope.toString());
 
-//        String scope = "read";
+
 
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("self")
