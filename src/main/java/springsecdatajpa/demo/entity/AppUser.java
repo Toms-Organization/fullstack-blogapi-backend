@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "appuser")
+@Table(name = "app_user")
 public class AppUser {
 
 
@@ -19,8 +19,8 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(unique = true)
-    private String username;
-    private String userpassword;
+    private String userName;
+    private String userPassword;
     @Column(unique = true)
     private String email;
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)

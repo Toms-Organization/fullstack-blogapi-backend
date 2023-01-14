@@ -17,7 +17,7 @@ public class AppUserService {
 
     public boolean checkIfValidUser(AppUserLoginDTO appUserLoginDTO) {
         System.out.println(appUserLoginDTO.toString());
-        AppUser thisUser = appUserRepository.findByUsernameAndUserpassword(appUserLoginDTO.getUsername(), appUserLoginDTO.getUserpassword());
+        AppUser thisUser = appUserRepository.findAppUserByUserNameAndUserPassword(appUserLoginDTO.getUsername(), appUserLoginDTO.getUserpassword());
         System.out.println(thisUser);
         if (thisUser != null) {
             System.out.println("not null");

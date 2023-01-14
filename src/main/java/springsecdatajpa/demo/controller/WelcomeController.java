@@ -64,7 +64,7 @@ public class WelcomeController {
     public String givetoken(@RequestBody AppUserLoginDTO appUserLoginDTO){
         System.out.println("Are we here?2222");
 
-//        LOG.debug("Token requested for user: '{}'", appUserLoginDTO.getUsername());
+//        LOG.debug("Token requested for user: '{}'", appUserLoginDTO.getUserName());
 //        //TODO: Check if user exists and if password exist
 //        // IF SO--> Return token -> Else deny access
 //        boolean goodUser = appUserService.checkIfValidUser(appUserLoginDTO);
