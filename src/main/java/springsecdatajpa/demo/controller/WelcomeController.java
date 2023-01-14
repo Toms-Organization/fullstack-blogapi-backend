@@ -25,19 +25,19 @@ public class WelcomeController {
     }
 
 
-//    @GetMapping("/welcome")
-//    public String welcomeAll() {
-//        System.out.println("Are we here?");
-//
-//
-//
-//        return "Welcome to this Open Endpoint";
-//    }
+    @GetMapping("/welcome")
+    public String welcomeAll() {
+        System.out.println("Are we here?");
+
+
+
+        return "Welcome to this Open Endpoint";
+    }
 
     @PostMapping("/authenticate")
     public String authenticateUser(@RequestBody AppUserLoginDTO appUserLoginDTO) {
         System.out.println("Are we here? WELCOMEALL");
-        LOG.debug("Token requested for user: '{}'", appUserLoginDTO.getUsername());
+
         //TODO: Check if user exists and if password exist
         // IF SO--> Return token -> Else deny access
         boolean goodUser = appUserService.checkIfValidUser(appUserLoginDTO);
@@ -45,6 +45,7 @@ public class WelcomeController {
         if(goodUser){
             // TODO: map dto to realUser
             AppUser appuser = mapperClass.convertDtoToUser(appUserLoginDTO);
+            System.out.println(appuser.toString());
             String token = tokenService.generateToken2(appuser);
 
 

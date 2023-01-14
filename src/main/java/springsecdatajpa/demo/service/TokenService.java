@@ -51,10 +51,13 @@ public class TokenService {
 
     public String generateToken2(AppUser appUser) {
         // TODO: Implement the solution from Backend One
+        System.out.println("inside Generate Token2");
         Instant now = Instant.now();
         String scope = appUser.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(" "));
+        System.out.println(scope.toString());
+
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(now)

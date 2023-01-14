@@ -21,7 +21,7 @@ public class LoginController {
     }
 
 
-    @GetMapping("")
+    @GetMapping("/loginscreen")
     public String loginScreen() {
         return "This should be protected.. You are in login.....";
     }
