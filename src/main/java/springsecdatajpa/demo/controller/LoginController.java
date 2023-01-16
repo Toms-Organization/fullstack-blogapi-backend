@@ -24,16 +24,16 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    @PostMapping("")
-    public String loginScreen(@RequestBody AppUserLoginDTO appUserLoginDTO) {
-        AppUser appUser = appUserService.checkIfValidUser(appUserLoginDTO);
-        if(appUser!=null){
-            String token = tokenService.generateToken2(appUser);
-            System.out.println("We have a good user:: "+ appUser);;
-            return token;
-        }else {
-            return "User and user password not found";
-        }
-    }
+//    @PostMapping("")
+//    public String loginScreen(@RequestBody AppUserLoginDTO appUserLoginDTO) {
+//        AppUser appUser = appUserService.checkIfValidUser(appUserLoginDTO);
+//        if(appUser!=null){
+//            String token = tokenService.generateToken2(appUser);
+//            System.out.println("We have a good user:: "+ appUser);;
+//            return token;
+//        }else {
+//            return "User and user password not found";
+//        }
+//    }
 
 }
