@@ -4,28 +4,22 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import springsecdatajpa.demo.config.RsaKeyProperties;
-import springsecdatajpa.demo.entity.AppUser;
-import springsecdatajpa.demo.entity.Authorities;
-import springsecdatajpa.demo.entity.BlogPost;
 import springsecdatajpa.demo.service.AppUserService;
 import springsecdatajpa.demo.service.BlogPostService;
-import springsecdatajpa.demo.service.LoginService;
 
 import javax.annotation.PostConstruct;
-import java.util.Set;
 
 
 @SpringBootApplication
 @EnableConfigurationProperties(RsaKeyProperties.class)
-public class DemoApplication {
+public class BlogApiService {
 
 	private final AppUserService appUserService;
 	private final BlogPostService blogPostService;
-	private final LoginService loginService;
-	public DemoApplication(AppUserService appUserService, BlogPostService blogPostService, LoginService loginService) {
+
+	public BlogApiService(AppUserService appUserService, BlogPostService blogPostService) {
 		this.appUserService = appUserService;
 		this.blogPostService = blogPostService;
-		this.loginService = loginService;
 	}
 
 
@@ -47,7 +41,7 @@ public class DemoApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(BlogApiService.class, args);
 	}
 
 
