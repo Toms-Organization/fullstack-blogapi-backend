@@ -1,8 +1,11 @@
-HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### resources Certs ###
+src/main/resources/certs/*.pem
+
 
 ### STS ###
 .apt_generated
