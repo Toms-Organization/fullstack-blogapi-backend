@@ -33,4 +33,8 @@ public class BlogPost {
     @ManyToOne(cascade = CascadeType.MERGE)
     private AppUser appUser;
 
+
+
+
+
 }
