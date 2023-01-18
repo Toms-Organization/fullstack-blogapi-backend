@@ -31,4 +31,9 @@ public class AppUserService {
     public void saveAppUser(AppUser u1) {
         appUserRepository.save(u1);
     }
+
+    public AppUser findUserByID(int id){
+        return appUserRepository.findById(id).get();
+    }
+
 }

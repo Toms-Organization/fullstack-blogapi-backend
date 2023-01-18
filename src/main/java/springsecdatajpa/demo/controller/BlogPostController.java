@@ -1,12 +1,14 @@
 package springsecdatajpa.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import springsecdatajpa.demo.entity.AppUser;
 import springsecdatajpa.demo.entity.BlogPost;
+import springsecdatajpa.demo.entity.DTO.AppUserDTO;
+import springsecdatajpa.demo.entity.DTO.BlogPostDTO;
+import springsecdatajpa.demo.entity.DTO.CreateBlogPostDTO;
 import springsecdatajpa.demo.service.BlogPostService;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -25,11 +27,32 @@ public class BlogPostController {
        return blogPostService.getBlogByTopic(topic);
     }
 
+    @GetMapping("/getAllPosts")
+    public List<BlogPostDTO> getAllBlogPosts(){
+        return blogPostService.getAllBlogPostsDTO();
+    }
 
-    @GetMapping("/getallposts")
-    public List<BlogPost> getBlogPostByTopic(){
+    @PostMapping("/getmyposts")
+    public List<BlogPostDTO> getAllPostsFromOneUser(@RequestBody AppUserDTO appUserDTO ){
+        return blogPostService.getAllUsersBlogPost(appUserDTO);
+    }
+
+
+
+    // TODO: REMOVE THIS ENDPOINT OR SET "ADMIN" authority to view content.
+    @GetMapping("/getallpostsasadmin")
+    public List<BlogPost> getAllBlogPostsAsAdmin(){
+        // either remove this endpoint or protect it by authority "admin"
         return blogPostService.getAllBlogPosts();
     }
+
+
+    @PostMapping("/createblogpost")
+    public String createNewBlogPost(@RequestBody CreateBlogPostDTO createBlogPostDTO){
+        blogPostService.saveBlogPost2(createBlogPostDTO);
+        return "Blogpost created";
+    }
+
 
 
 

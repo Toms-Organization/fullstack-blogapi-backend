@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import springsecdatajpa.demo.config.RsaKeyProperties;
+import springsecdatajpa.demo.entity.AppUser;
+import springsecdatajpa.demo.entity.BlogPost;
+import springsecdatajpa.demo.entity.DTO.CreateBlogPostDTO;
 import springsecdatajpa.demo.service.AppUserService;
 import springsecdatajpa.demo.service.BlogPostService;
 
@@ -25,17 +28,12 @@ public class BlogApiService {
 
 	@PostConstruct
 	public void initData() {
-		// Add user
-		//		AppUser u1 = new AppUser(3,"Bigge", "coolbigge", "bigge@gmail.com", Set.of(new Authorities(1, "read")));
-		//		appUserService.saveAppUser(u1);
-
 
 		// Add a blogpost
-
-		//BlogPost blogPost1 = new BlogPost(1, "About me", "This is long text about me...");
-		//BlogPost blogPost2 = new BlogPost(2, "Friday 13th", "Wonderful day that...");
-		// blogPostService.saveBlogPost(blogPost1);
-		//blogPostService.saveBlogPost(blogPost2);
+//		AppUser appUser = appUserService.findUserByID(1);
+//
+//		CreateBlogPostDTO blogPost1 = new CreateBlogPostDTO("About me", "This is long text about me...", appUser);
+//		blogPostService.saveBlogPost(blogPost1);
 	}
 
 
