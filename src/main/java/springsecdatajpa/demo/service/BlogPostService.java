@@ -4,6 +4,7 @@ package springsecdatajpa.demo.service;
 import org.springframework.stereotype.Service;
 import springsecdatajpa.demo.entity.AppUser;
 import springsecdatajpa.demo.entity.BlogPost;
+import springsecdatajpa.demo.entity.DTO.AppUserDTO;
 import springsecdatajpa.demo.entity.DTO.BlogPostDTO;
 import springsecdatajpa.demo.entity.DTO.CreateBlogPostDTO;
 import springsecdatajpa.demo.repository.BlogPostRepository;
@@ -52,6 +53,13 @@ public class BlogPostService {
 
     public List<BlogPostDTO> getAllBlogPostsDTO() {
         List<BlogPost> allBlogs = blogPostRepository.findAll();
+        List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogs);
+        return convertedList;
+    }
+
+    public List<BlogPostDTO> getAllUsersBlogPost(AppUserDTO appUserDTO) {
+        AppUser appUser = appUserService.findUserByID(appUserDTO.getId());
+        List<BlogPost> allBlogs = blogPostRepository.findAllByAppUser(appUser);
         List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogs);
         return convertedList;
     }

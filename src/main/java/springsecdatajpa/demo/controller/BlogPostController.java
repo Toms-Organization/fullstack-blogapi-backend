@@ -27,16 +27,22 @@ public class BlogPostController {
        return blogPostService.getBlogByTopic(topic);
     }
 
-    @GetMapping("/getallposts")
+    @GetMapping("/getAllPosts")
     public List<BlogPostDTO> getAllBlogPosts(){
-
         return blogPostService.getAllBlogPostsDTO();
     }
 
+    @PostMapping("/getmyposts")
+    public List<BlogPostDTO> getAllPostsFromOneUser(@RequestBody AppUserDTO appUserDTO ){
+        return blogPostService.getAllUsersBlogPost(appUserDTO);
+    }
 
+
+
+    // TODO: REMOVE THIS ENDPOINT OR SET "ADMIN" authority to view content.
     @GetMapping("/getallpostsasadmin")
     public List<BlogPost> getAllBlogPostsAsAdmin(){
-        // either hide this endpoint and protect it by authority "admin" or remake it to return without all the details..
+        // either remove this endpoint or protect it by authority "admin"
         return blogPostService.getAllBlogPosts();
     }
 
@@ -46,5 +52,8 @@ public class BlogPostController {
         blogPostService.saveBlogPost2(createBlogPostDTO);
         return "Blogpost created";
     }
+
+
+
 
 }
