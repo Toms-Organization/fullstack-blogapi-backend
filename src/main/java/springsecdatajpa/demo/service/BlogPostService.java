@@ -41,7 +41,7 @@ public class BlogPostService {
     public void saveBlogPost2(CreateBlogPostDTO createBlogPostDTO) {
 
         // TODO: 1st find user
-        AppUser appUser = appUserService.findUserByID(createBlogPostDTO.getAppUserDTO().getId());
+        AppUser appUser = appUserService.findUserByID(createBlogPostDTO.getAppUserId());
 
         // TODO: 2nd Convert blogDTO --> BlogPost
         BlogPost bp = mapper.convertDtoToBlogPost2(createBlogPostDTO, appUser);

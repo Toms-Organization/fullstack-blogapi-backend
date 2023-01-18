@@ -13,7 +13,7 @@ public class CreateBlogPostDTO {
 
     private String topic;
     private String text;
-    private AppUserDTO appUserDTO;
+    private int appUserId;
 
 
 }
