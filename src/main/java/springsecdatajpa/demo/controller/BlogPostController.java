@@ -12,7 +12,8 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
-@RequestMapping("/blogpost")
+@RequestMapping("")
+@CrossOrigin(origins = "http://localhost:3000/Blog")
 public class BlogPostController {
 
     private final BlogPostService blogPostService;
@@ -23,37 +24,46 @@ public class BlogPostController {
 
 
     @GetMapping("/getoneblogpostfromtopicname")
-    public BlogPost getBlogPostByTopic(@RequestParam String topic){
-       return blogPostService.getBlogByTopic(topic);
+    public BlogPost getBlogPostByTopic(@RequestParam String topic) {
+        return blogPostService.getBlogByTopic(topic);
     }
 
     @GetMapping("/getAllPosts")
-    public List<BlogPostDTO> getAllBlogPosts(){
+    public List<BlogPostDTO> getAllBlogPosts() {
         return blogPostService.getAllBlogPostsDTO();
     }
 
     @PostMapping("/getmyposts")
-    public List<BlogPostDTO> getAllPostsFromOneUser(@RequestBody AppUserDTO appUserDTO ){
+    public List<BlogPostDTO> getAllPostsFromOneUser(@RequestBody AppUserDTO appUserDTO) {
         return blogPostService.getAllUsersBlogPost(appUserDTO);
     }
 
 
-
     // TODO: REMOVE THIS ENDPOINT OR SET "ADMIN" authority to view content.
     @GetMapping("/getallpostsasadmin")
-    public List<BlogPost> getAllBlogPostsAsAdmin(){
+    public List<BlogPost> getAllBlogPostsAsAdmin() {
         // either remove this endpoint or protect it by authority "admin"
         return blogPostService.getAllBlogPosts();
     }
 
 
     @PostMapping("/createblogpost")
-    public String createNewBlogPost(@RequestBody CreateBlogPostDTO createBlogPostDTO){
+    public String createNewBlogPost(@RequestBody CreateBlogPostDTO createBlogPostDTO) {
         blogPostService.saveBlogPost2(createBlogPostDTO);
         return "Blogpost created";
     }
 
 
+    @GetMapping("/opentemporary")
+    public List<BlogPostDTO> getAllBlogPostsTemporaryEndpoint() {
+        System.out.println(blogPostService.getAllBlogPostsDTO());
+        return blogPostService.getAllBlogPostsDTO();
+    }
 
 
 }
+
+
+
+
+
