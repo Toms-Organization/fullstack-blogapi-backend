@@ -6,6 +6,7 @@ import springsecdatajpa.demo.entity.BlogPost;
 import springsecdatajpa.demo.entity.DTO.AppUserDTO;
 import springsecdatajpa.demo.entity.DTO.BlogPostDTO;
 import springsecdatajpa.demo.entity.DTO.CreateBlogPostDTO;
+import springsecdatajpa.demo.entity.DTO.UserId;
 import springsecdatajpa.demo.service.BlogPostService;
 
 import javax.annotation.PostConstruct;
@@ -33,11 +34,15 @@ public class BlogPostController {
         return blogPostService.getAllBlogPostsDTO();
     }
 
-    @PostMapping("/getmyposts")
-    public List<BlogPostDTO> getAllPostsFromOneUser(@RequestBody AppUserDTO appUserDTO) {
-        return blogPostService.getAllUsersBlogPost(appUserDTO);
+    @PostMapping("/getusersblogposts")
+    public List<BlogPostDTO> getAllPostsFromTheUser(@RequestBody UserId userId) {
+        return blogPostService.getAllUsersBlogPostFromId(userId.getId());
     }
 
+    @PostMapping("/getusersblogposts2")     // http://localhost:8081/getusersblogposts2?a=1
+    public List<BlogPostDTO> getAllPostsFromTheUser2(@RequestParam int a) {
+        return blogPostService.getAllUsersBlogPostFromId(a);
+    }
 
     // TODO: REMOVE THIS ENDPOINT OR SET "ADMIN" authority to view content.
     @GetMapping("/getallpostsasadmin")
