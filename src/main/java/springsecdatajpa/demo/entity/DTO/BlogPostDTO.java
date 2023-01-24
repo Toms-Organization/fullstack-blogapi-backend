@@ -10,6 +10,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Data
@@ -23,4 +26,12 @@ public class BlogPostDTO {
     private Date createdAt;
     private String byUser;
 
+
+//    public void setCreatedAt(Date createdAt) {
+//        String oldFormat = createdAt.toString();
+//        String datetime = oldFormat.substring(0,10);
+////        System.out.println(oldFormat);
+////        LocalDateTime datetime = LocalDateTime.parse(oldFormat, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
+//        this.createdAt = datetime;
+//    }
 }

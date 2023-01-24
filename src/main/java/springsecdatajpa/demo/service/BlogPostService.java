@@ -63,4 +63,11 @@ public class BlogPostService {
         List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogs);
         return convertedList;
     }
+
+    public List<BlogPostDTO> getAllUsersBlogPostFromId(Integer a) {
+        AppUser appUser = appUserService.findUserByID(a);
+        List<BlogPost> allBlogs = blogPostRepository.findAllByAppUser(appUser);
+        List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogs);
+        return convertedList;
+    }
 }
