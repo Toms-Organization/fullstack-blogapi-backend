@@ -22,6 +22,7 @@ public class BlogPost {
 
     @Column(unique = true)
     private String topic;
+    @Column(length = 1000)
     private String text;
 
     @Column(updatable = false)
