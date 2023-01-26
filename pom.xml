@@ -29,7 +29,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
@@ -72,6 +76,13 @@
 			<version>0.11.5</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -79,14 +90,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
+				<!--				<configuration>-->
+				<!--					<excludes>-->
+				<!--						<exclude>-->
+				<!--							<groupId>org.projectlombok</groupId>-->
+				<!--							<artifactId>lombok</artifactId>-->
+				<!--						</exclude>-->
+				<!--					</excludes>-->
+				<!--				</configuration>-->
 			</plugin>
 		</plugins>
 	</build>
