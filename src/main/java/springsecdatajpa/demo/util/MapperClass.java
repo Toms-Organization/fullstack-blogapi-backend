@@ -11,6 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MapperClass {
 
@@ -54,5 +57,13 @@ public class MapperClass {
         // listOfBlogPosts.stream().map( e -> mapper.map( e, BlogPostDTO.class)).collect(Collectors.toList();
         return convertedList;
     }
+
+    public List<BlogPost> sortBlogPostByCreation(List<BlogPost> listToSort) {
+        List<BlogPost> sortedList = listToSort.stream()
+                .sorted(Comparator.comparing(BlogPost::getCreatedAt).reversed())
+                .collect(Collectors.toList());
+        return sortedList;
+    }
+
 
 }

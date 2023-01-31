@@ -14,4 +14,5 @@ public interface BlogPostRepository extends JpaRepository<BlogPost, Integer> {
     BlogPost findByTopic(String topic);
     List<BlogPost> findAllByAppUser(AppUser appUser);
 
+
 }
