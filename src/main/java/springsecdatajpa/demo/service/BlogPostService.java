@@ -20,13 +20,12 @@ public class BlogPostService {
     private final MapperClass mapper = new MapperClass();
 
 
-
     public BlogPostService(BlogPostRepository blogPostRepository, AppUserService appUserService) {
         this.blogPostRepository = blogPostRepository;
         this.appUserService = appUserService;
     }
 
-    public BlogPost getBlogByTopic(String topic){
+    public BlogPost getBlogByTopic(String topic) {
         return blogPostRepository.findByTopic(topic);
     }
 
@@ -40,7 +39,16 @@ public class BlogPostService {
         return blogPostRepository.findAll();
     }
 
-    public void saveBlogPost2(CreateBlogPostDTO createBlogPostDTO) {
+    public String saveABlogPost(CreateBlogPostDTO createBlogPostDTO) {
+
+        if (createBlogPostDTO.getText()== null  || createBlogPostDTO.getTopic() == null ) {
+            System.out.println("Entry not posted to Database. Add both Topic and text please!");
+            return "Entry not posted to Database. Add both Topic and text please!";
+        }
+        if(createBlogPostDTO.getTopic().isBlank() || createBlogPostDTO.getText().isBlank()){
+            System.out.println("Entry not posted to Database. Neither Topic or text can be white spaces only!");
+            return "Entry not posted to Database. Neither Topic or text can be white spaces only!";
+        }
         // TODO: 1st find user
         AppUser appUser = appUserService.findUserByID(createBlogPostDTO.getAppUserId());
 
@@ -49,6 +57,7 @@ public class BlogPostService {
 
         // TODO: Save blogpost with repo
         blogPostRepository.save(bp);
+        return "The Blog Entry was successfully saved";
     }
 
     public List<BlogPostDTO> getAllBlogPostsDTO() {
@@ -67,7 +76,8 @@ public class BlogPostService {
     public List<BlogPostDTO> getAllUsersBlogPostFromId(Integer a) {
         AppUser appUser = appUserService.findUserByID(a);
         List<BlogPost> allBlogs = blogPostRepository.findAllByAppUser(appUser);
-        List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogs);
+        List<BlogPost> allBlogsSortedByDate = mapper.sortBlogPostByCreation(allBlogs);
+        List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogsSortedByDate);
         return convertedList;
     }
 }

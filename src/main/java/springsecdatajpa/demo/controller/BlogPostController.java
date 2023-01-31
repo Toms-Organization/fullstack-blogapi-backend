@@ -54,8 +54,8 @@ public class BlogPostController {
 
     @PostMapping("/createblogpost")
     public String createNewBlogPost(@RequestBody CreateBlogPostDTO createBlogPostDTO) {
-        blogPostService.saveBlogPost2(createBlogPostDTO);
-        return "Blogpost created";
+        System.out.println("In param::: "+ createBlogPostDTO.toString());
+        return blogPostService.saveABlogPost(createBlogPostDTO);
     }
 
 
