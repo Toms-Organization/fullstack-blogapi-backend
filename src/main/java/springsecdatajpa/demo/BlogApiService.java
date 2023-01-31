@@ -4,9 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import springsecdatajpa.demo.config.RsaKeyProperties;
-import springsecdatajpa.demo.entity.AppUser;
-import springsecdatajpa.demo.entity.BlogPost;
-import springsecdatajpa.demo.entity.DTO.CreateBlogPostDTO;
 import springsecdatajpa.demo.service.AppUserService;
 import springsecdatajpa.demo.service.BlogPostService;
 

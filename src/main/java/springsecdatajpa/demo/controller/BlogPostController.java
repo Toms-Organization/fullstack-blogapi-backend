@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("")
-@CrossOrigin(origins = "*")
 public class BlogPostController {
 
     private final BlogPostService blogPostService;
@@ -50,6 +49,7 @@ public class BlogPostController {
         // either remove this endpoint or protect it by authority "admin"
         return blogPostService.getAllBlogPosts();
     }
+
 
 
     @PostMapping("/createblogpost")

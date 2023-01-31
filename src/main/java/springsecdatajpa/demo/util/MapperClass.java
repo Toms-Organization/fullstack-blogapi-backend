@@ -65,5 +65,12 @@ public class MapperClass {
         return sortedList;
     }
 
+    public List<BlogPost> sortBlogPostByLastestAdded(List<BlogPost> listToSort) {
+        List<BlogPost> sortedList = listToSort.stream()
+                .sorted(Comparator.comparing(BlogPost::getId).reversed())
+                .collect(Collectors.toList());
+        return sortedList;
+    }
+
 
 }

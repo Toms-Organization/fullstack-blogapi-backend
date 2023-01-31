@@ -76,7 +76,7 @@ public class BlogPostService {
     public List<BlogPostDTO> getAllUsersBlogPostFromId(Integer a) {
         AppUser appUser = appUserService.findUserByID(a);
         List<BlogPost> allBlogs = blogPostRepository.findAllByAppUser(appUser);
-        List<BlogPost> allBlogsSortedByDate = mapper.sortBlogPostByCreation(allBlogs);
+        List<BlogPost> allBlogsSortedByDate = mapper.sortBlogPostByLastestAdded(allBlogs);
         List<BlogPostDTO> convertedList = mapper.convertBlogPostToDTOs2(allBlogsSortedByDate);
         return convertedList;
     }
