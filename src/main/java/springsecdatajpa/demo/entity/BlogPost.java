@@ -20,7 +20,7 @@ public class BlogPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(unique = true)
+    @Column()
     private String topic;
     @Column(length = 1000)
     private String text;
