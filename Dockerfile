@@ -3,9 +3,7 @@ WORKDIR /build
 COPY pom.xml .
 COPY src src/
 
-# RUN mvn clean // To potentially emtpy a existing target folder
 RUN mvn -f /build/pom.xml clean
-# RUN mvn install -f /build/pom.xml
 RUN mvn -f /build/pom.xml package
 
 
