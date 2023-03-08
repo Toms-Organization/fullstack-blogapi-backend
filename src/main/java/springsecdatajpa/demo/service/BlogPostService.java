@@ -35,7 +35,6 @@ public class BlogPostService {
         blogPostRepository.save(bp);
     }
 
-
     public List<BlogPost> getAllBlogPosts() {
         return blogPostRepository.findAll();
     }

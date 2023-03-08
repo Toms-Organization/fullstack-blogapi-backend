@@ -9,6 +9,8 @@ RUN mvn -f /build/pom.xml package
 
 FROM openjdk:17
 COPY --from=builder /build/target/blogapiservice-0.0.1-SNAPSHOT.jar ./
+COPY  ./src/main/resources/certs/private.pem  ./
+COPY  ./src/main/resources/certs/public.pem  ./
 EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "blogapiservice-0.0.1-SNAPSHOT.jar"]
 
