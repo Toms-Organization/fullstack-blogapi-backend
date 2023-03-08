@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserId {
 
-
     private int id;
 }
