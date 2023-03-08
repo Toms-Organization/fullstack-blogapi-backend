@@ -18,7 +18,6 @@ public class MapperClass {
     private final ModelMapper mapper = new ModelMapper();
 
 
-
     public AppUser convertDtoToUser(AppUserLoginDTO appUserLoginDTO) {
         return mapper.map(appUserLoginDTO, AppUser.class);
     }

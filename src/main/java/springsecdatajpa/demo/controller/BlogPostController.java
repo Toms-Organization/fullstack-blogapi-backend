@@ -20,7 +20,7 @@ public class BlogPostController {
 
     @PostMapping("/createblogpost")
     public String createNewBlogPost(@RequestBody CreateBlogPostDTO createBlogPostDTO) {
-        blogPostService.saveBlogPost2(createBlogPostDTO);
+        blogPostService.saveBlogPost(createBlogPostDTO);
         return "Blogpost created";
     }
 

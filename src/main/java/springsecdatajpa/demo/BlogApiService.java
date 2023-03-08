@@ -28,12 +28,6 @@ public class BlogApiService {
 
 	@PostConstruct
 	public void initData() {
-
-		// Add a blogpost
-//		AppUser appUser = appUserService.findUserByID(1);
-//
-//		CreateBlogPostDTO blogPost1 = new CreateBlogPostDTO("About me", "This is long text about me...", appUser);
-//		blogPostService.saveBlogPost(blogPost1);
 	}
 
 
